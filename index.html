@@ -3,91 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante Pimenta Rosa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- SEO -->
     <meta name="robots" content="index, follow">
     <meta name="description" content="Restaurante Pimenta Rosa em Juquehy. Sabores à beira-mar com pratos especiais e ambiente acolhedor.">
     <meta name="keywords" content="Restaurante em Juquehy, Pimenta Rosa, restaurante São Sebastião, comida praia Juquehy">
     <meta name="author" content="Restaurante Pimenta Rosa">
-
+    <title>Restaurante Pimenta Rosa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset básico */
         * { margin:0; padding:0; box-sizing:border-box; font-family: 'Montserrat', sans-serif; }
         body { background-color:#fff8f0; color:#333; line-height:1.6; scroll-behavior: smooth; }
 
-        /* Header */
         header {
             background: linear-gradient(90deg, #ff6f61, #ff8a75);
-            color:white;
-            text-align:center;
-            padding: 60px 20px;
+            color:white; text-align:center; padding: 60px 20px; position: relative; overflow: hidden;
         }
-        header h1 { font-size:3rem; margin-bottom:10px; }
-        header p { font-size:1.3rem; }
+        header h1 { font-size:3rem; margin-bottom:10px; animation: fadeInDown 1s ease forwards; }
+        header p { font-size:1.3rem; animation: fadeInUp 1s ease forwards; }
 
-        /* Navegação */
+        @keyframes fadeInDown { from {opacity:0; transform: translateY(-30px);} to {opacity:1; transform: translateY(0);} }
+        @keyframes fadeInUp { from {opacity:0; transform: translateY(30px);} to {opacity:1; transform: translateY(0);} }
+
         nav { background-color:#ff8a75; display:flex; justify-content:center; flex-wrap:wrap; }
-        nav a {
-            color:white; text-decoration:none; padding:15px 20px; font-weight:600;
-            transition: background 0.3s, color 0.3s;
-        }
-        nav a:hover { background-color:#ff6f61; color:white; }
+        nav a { color:white; text-decoration:none; padding:15px 20px; font-weight:600; transition: background 0.3s; }
+        nav a:hover { background-color:#ff6f61; }
 
-        /* Seções */
         section { padding:80px 20px; max-width:1200px; margin:auto; }
-        h2 { text-align:center; color:#ff6f61; font-size:2.2rem; margin-bottom:40px; position: relative; }
-        h2::after { content:''; display:block; width:60px; height:3px; background:#ff6f61; margin:10px auto 0; border-radius:2px; }
+        h2 { color:#ff6f61; font-size:2rem; margin-bottom:40px; text-align:center; position: relative; }
+        h2::after { content:''; width:60px; height:3px; background:#ff6f61; display:block; margin:10px auto 0; border-radius:2px; }
 
-        /* Sobre */
         #sobre p { max-width:800px; margin:auto; text-align:center; font-size:1.1rem; }
 
-        /* Cardápio Grid */
-        #cardapio { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
-        .cardapio-item {
-            background:white; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1);
-            overflow:hidden; transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .cardapio-item:hover { transform: translateY(-5px); box-shadow:0 8px 15px rgba(0,0,0,0.2); }
-        .cardapio-item img { width:100%; height:200px; object-fit:cover; }
-        .cardapio-item h3 { color:#ff6f61; font-size:1.3rem; padding:15px 20px 5px 20px; }
-        .cardapio-item p { font-size:1rem; color:#555; padding:0 20px 15px 20px; }
+        .menu-category { margin-bottom:50px; }
+        .menu-item { margin-bottom:20px; animation: fadeIn 1s ease forwards; }
+        .menu-item h4 { color:#ff6f61; font-size:1.2rem; margin-bottom:5px; }
+        .menu-item p { margin-left:10px; font-size:1rem; color:#555; }
 
-        /* Galeria */
+        @keyframes fadeIn { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
+
         #galeria { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
         #galeria img { width:100%; height:200px; object-fit:cover; border-radius:12px; transition: transform 0.3s; }
         #galeria img:hover { transform: scale(1.05); }
 
-        /* Localização & Contato */
         #localizacao p, #contato p { text-align:center; margin:10px 0; font-size:1.1rem; }
         iframe { border-radius:12px; margin-top:20px; width:100%; height:350px; border:0; }
+
         #contato a { color:#ff6f61; text-decoration:none; font-weight:600; }
         #contato a:hover { text-decoration:underline; }
 
-        /* Rodapé */
         footer { background:#ff6f61; color:white; text-align:center; padding:30px 20px; margin-top:50px; }
         footer a { color:white; text-decoration:underline; margin:0 8px; }
 
-        /* Responsivo */
-        @media (max-width:768px) {
+        @media(max-width:768px){
             header h1 { font-size:2.2rem; }
             header p { font-size:1rem; }
             nav a { padding:10px 15px; }
-            .cardapio-item h3 { font-size:1.1rem; }
-            .cardapio-item p { font-size:0.95rem; }
         }
     </style>
 </head>
 <body>
 
-<!-- Header -->
 <header>
     <h1>Restaurante Pimenta Rosa</h1>
     <p>Sabores que aquecem o coração à beira-mar</p>
 </header>
 
-<!-- Navegação -->
 <nav>
     <a href="#sobre">Sobre</a>
     <a href="#cardapio">Cardápio</a>
@@ -96,121 +75,66 @@
     <a href="#contato">Contato</a>
 </nav>
 
-<!-- Sobre -->
 <section id="sobre">
     <h2>Sobre Nós</h2>
     <p>Bem-vindo ao Pimenta Rosa – um lugar especial para quem ama boa comida e clima descontraído. Nosso ambiente acolhedor e cardápio cuidadosamente preparado combinam tradição e criatividade, para tornar cada refeição uma experiência memorável em Juquehy.</p>
 </section>
 
-<!-- Cardápio -->
 <section id="cardapio">
     <h2>Cardápio</h2>
 
-    <!-- Entradas -->
-    <div class="cardapio-item">
-        <img src="https://via.placeholder.com/300x200" alt="Salada Caprese">
-        <h3>Salada Caprese com toque de pimenta rosa</h3>
-        <p>Tomate, mussarela de búfala, manjericão e azeite de oliva.</p>
-    </div>
-    <div class="cardapio-item">
-        <img src="https://via.placeholder.com/300x200" alt="Bruschetta artesanal">
-        <h3>Bruschetta artesanal</h3>
-        <p>Pão crocante com tomates frescos, alho e azeite.</p>
-    </div>
-    <div class="cardapio-item">
-        <img src="https://via.placeholder.com/300x200" alt="Ceviche de peixe">
-        <h3>Ceviche de peixe</h3>
-        <p>Peixe fresco marinado com limão e temperos especiais.</p>
-    </div>
-    <div class="cardapio-item">
-        <img src="https://via.placeholder.com/300x200" alt="Tartar de salmão">
-        <h3>Tartar de salmão</h3>
-        <p>Salmão fresco cortado à mão com molho cítrico e ervas.</p>
-    </div>
-    <div class="cardapio-item">
-        <img src="https://via.placeholder.com/300x200" alt="Bolinho de bacalhau">
-        <h3>Bolinho de bacalhau</h3>
-        <p>Tradicional bolinho crocante recheado com bacalhau desfiado.</p>
+    <div class="menu-category">
+        <h3>Entradas</h3>
+        <div class="menu-item">
+            <h4>Salada Caprese com toque de pimenta rosa</h4>
+            <p>Tomate, mussarela de búfala, manjericão e azeite de oliva.</p>
+            <img src="imagens/entrada1.jpg" alt="Salada Caprese" width="300">
+        </div>
+        <div class="menu-item">
+            <h4>Bruschetta artesanal</h4>
+            <p>Pão crocante com tomates frescos, alho e azeite.</p>
+            <img src="imagens/entrada2.jpg" alt="Bruschetta" width="300">
+        </div>
     </div>
 
-    <!-- Pratos principais -->
-    <div class="cardapio-item">
-        <img src="https://via.placeholder.com/300x200" alt="Filé de peixe com molho de ervas">
-        <h3>Filé de peixe com molho de ervas</h3>
-        <p>Filé fresco grelhado com ervas aromáticas.</p>
-    </div>
-    <div class="cardapio-item">
-        <img src="https://via.placeholder.com/300x200" alt="Massa artesanal com frutos do mar">
-        <h3>Massa artesanal com frutos do mar</h3>
-        <p>Massa fresca acompanhada de camarão, lula e mariscos.</p>
-    </div>
-    <div class="cardapio-item">
-        <img src="https://via.placeholder.com/300x200" alt="Risoto de camarão">
-        <h3>Risoto de camarão com pimenta rosa</h3>
-        <p>Risoto cremoso com camarões selecionados.</p>
-    </div>
-    <div class="cardapio-item">
-        <img src="https://via.placeholder.com/300x200" alt="Moqueca de peixe">
-        <h3>Moqueca de peixe</h3>
-        <p>Peixe cozido em molho de coco, dendê e temperos tradicionais.</p>
-    </div>
-    <div class="cardapio-item">
-        <img src="https://via.placeholder.com/300x200" alt="Peito de frango grelhado">
-        <h3>Peito de frango grelhado</h3>
-        <p>Frango suculento com ervas finas e acompanhamento de legumes.</p>
+    <div class="menu-category">
+        <h3>Pratos Principais</h3>
+        <div class="menu-item"><h4>Filé de peixe com molho de ervas</h4><img src="imagens/prato1.jpg" alt="" width="300"></div>
+        <div class="menu-item"><h4>Massa artesanal com frutos do mar</h4><img src="imagens/prato2.jpg" alt="" width="300"></div>
+        <div class="menu-item"><h4>Risoto de camarão com pimenta rosa</h4><img src="imagens/prato3.jpg" alt="" width="300"></div>
+        <div class="menu-item"><h4>Frango grelhado com legumes</h4><img src="imagens/prato4.jpg" alt="" width="300"></div>
+        <div class="menu-item"><h4>Peixe à milanesa</h4><img src="imagens/prato5.jpg" alt="" width="300"></div>
+        <div class="menu-item"><h4>Lasanha de frutos do mar</h4><img src="imagens/prato6.jpg" alt="" width="300"></div>
+        <div class="menu-item"><h4>Espaguete ao molho de camarão</h4><img src="imagens/prato7.jpg" alt="" width="300"></div>
+        <div class="menu-item"><h4>Salmão grelhado</h4><img src="imagens/prato8.jpg" alt="" width="300"></div>
     </div>
 
-    <!-- Sobremesas -->
-    <div class="cardapio-item">
-        <img src="https://via.placeholder.com/300x200" alt="Cheesecake">
-        <h3>Cheesecake com calda de frutas vermelhas</h3>
-        <p>Base crocante com recheio cremoso e cobertura de frutas.</p>
+    <div class="menu-category">
+        <h3>Sobremesas</h3>
+        <div class="menu-item"><h4>Cheesecake com calda de frutas vermelhas</h4><img src="imagens/sobremesa1.jpg" alt="" width="300"></div>
+        <div class="menu-item"><h4>Brownie artesanal com sorvete</h4><img src="imagens/sobremesa2.jpg" alt="" width="300"></div>
+        <div class="menu-item"><h4>Pudim de leite</h4><img src="imagens/sobremesa3.jpg" alt="" width="300"></div>
+        <div class="menu-item"><h4>Mousse de maracujá</h4><img src="imagens/sobremesa4.jpg" alt="" width="300"></div>
+        <div class="menu-item"><h4>Sorvete de creme com calda de chocolate</h4><img src="imagens/sobremesa5.jpg" alt="" width="300"></div>
     </div>
-    <div class="cardapio-item">
-        <img src="https://via.placeholder.com/300x200" alt="Brownie">
-        <h3>Brownie artesanal com sorvete</h3>
-        <p>Brownie quentinho acompanhado de sorvete de creme.</p>
-    </div>
-    <div class="cardapio-item">
-        <img src="https://via.placeholder.com/300x200" alt="Pudim de leite">
-        <h3>Pudim de leite condensado</h3>
-        <p>Pudim tradicional, cremoso e caramelizado.</p>
-    </div>
-    <div class="cardapio-item">
-        <img src="https://via.placeholder.com/300x200" alt="Mousse de chocolate">
-        <h3>Mousse de chocolate</h3>
-        <p>Mousse leve e aerado, chocolate belga.</p>
-    </div>
-    <div class="cardapio-item">
-        <img src="https://via.placeholder.com/300x200" alt="Frutas da estação">
-        <h3>Frutas da estação</h3>
-        <p>Seleção fresca e variada de frutas locais.</p>
-    </div>
-
 </section>
 
-<!-- Galeria -->
 <section id="galeria">
     <h2>Galeria de Fotos</h2>
-    <img src="https://via.placeholder.com/300x200" alt="Prato 1">
-    <img src="https://via.placeholder.com/300x200" alt="Prato 2">
-    <img src="https://via.placeholder.com/300x200" alt="Ambiente do restaurante">
-    <img src="https://via.placeholder.com/300x200" alt="Vista externa">
+    <img src="imagens/galeria1.jpg" alt="Ambiente interno">
+    <img src="imagens/galeria2.jpg" alt="Vista externa">
+    <img src="imagens/galeria3.jpg" alt="Close de prato principal">
+    <img src="imagens/galeria4.jpg" alt="Clientes aproveitando">
 </section>
 
-<!-- Localização -->
 <section id="localizacao">
     <h2>Localização</h2>
     <p>Av. Adelino Tavares, 332 – Juquehy, São Sebastião – SP, Brasil</p>
     <p>Horário de funcionamento: Segunda a Domingo, 11:30 – 22:00</p>
     <p>Telefone: +55 (12) 99671-3303</p>
-    <iframe
-        src="https://www.google.com/maps?q=Av.+Adelino+Tavares,+332,+Juquehy,+SP,+Brasil&output=embed"
-        allowfullscreen="" loading="lazy">
-    </iframe>
+    <iframe src="https://www.google.com/maps?q=Av.+Adelino+Tavares,+332,+Juquehy,+SP,+Brasil&output=embed" allowfullscreen="" loading="lazy"></iframe>
 </section>
 
-<!-- Contato -->
 <section id="contato">
     <h2>Contato</h2>
     <p>Faça sua reserva ou peça delivery pelo WhatsApp:</p>
@@ -218,7 +142,6 @@
     <p>Email: contato@pimentarosa.com.br</p>
 </section>
 
-<!-- Rodapé -->
 <footer>
     <p>&copy; 2026 Pimenta Rosa – Todos os direitos reservados.</p>
     <p>
