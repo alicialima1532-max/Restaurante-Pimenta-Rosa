@@ -10,26 +10,18 @@
     <title>Restaurante Pimenta Rosa</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset e fontes */
         * { margin:0; padding:0; box-sizing:border-box; font-family: 'Montserrat', sans-serif; }
         body { background-color:#fff8f0; color:#333; line-height:1.6; scroll-behavior: smooth; }
 
-        /* Header */
         header {
             background: linear-gradient(90deg, #ff6f61, #ff8a75);
             color:white;
             text-align:center;
             padding: 60px 20px;
-            position: relative;
-            overflow: hidden;
         }
-        header h1 { font-size:3rem; margin-bottom:10px; animation: fadeInDown 1s ease forwards; }
-        header p { font-size:1.3rem; animation: fadeInUp 1s ease forwards; }
+        header h1 { font-size:3rem; margin-bottom:10px; }
+        header p { font-size:1.3rem; }
 
-        @keyframes fadeInDown { from {opacity:0; transform: translateY(-30px);} to {opacity:1; transform: translateY(0);} }
-        @keyframes fadeInUp { from {opacity:0; transform: translateY(30px);} to {opacity:1; transform: translateY(0);} }
-
-        /* Navegação */
         nav { background-color:#ff8a75; display:flex; justify-content:center; flex-wrap:wrap; position: sticky; top:0; z-index:100; }
         nav a {
             color:white; text-decoration:none; padding:15px 20px; font-weight:600;
@@ -37,27 +29,16 @@
         }
         nav a:hover { background-color:#ff6f61; color:white; }
 
-        /* Seções */
         section { padding:80px 20px; max-width:1200px; margin:auto; }
         h2 { color:#ff6f61; font-size:2rem; margin-bottom:40px; text-align:center; position: relative; }
         h2::after { content:''; width:60px; height:3px; background:#ff6f61; display:block; margin:10px auto 0; border-radius:2px; }
 
-        /* Sobre */
-        #sobre p { max-width:800px; margin:auto; text-align:center; font-size:1.1rem; }
-
         /* Cardápio */
         .menu-category { margin-bottom:50px; }
-        .menu-item { margin-bottom:20px; animation: fadeIn 1s ease forwards; display:flex; flex-wrap:wrap; align-items:center; gap:15px; }
-        .menu-item img { width:200px; height:140px; object-fit:cover; border-radius:10px; }
-        .menu-item div { max-width: calc(100% - 220px); }
+        .menu-item { margin-bottom:20px; padding:10px; border-radius:10px; background:#fff0eb; animation: fadeIn 1s ease forwards; }
         .menu-item h4 { color:#ff6f61; font-size:1.2rem; margin-bottom:5px; }
         .menu-item p { color:#555; }
         .menu-item span { font-weight:700; color:#333; display:block; margin-top:5px; }
-
-        /* Galeria */
-        #galeria { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
-        #galeria img { width:100%; height:200px; object-fit:cover; border-radius:12px; transition: transform 0.3s; }
-        #galeria img:hover { transform: scale(1.05); }
 
         /* App / Pedidos */
         #app { text-align:center; background:#ffefea; border-radius:15px; padding:50px 20px; }
@@ -66,175 +47,114 @@
         #app a { background:#ff6f61; color:white; text-decoration:none; padding:15px 30px; border-radius:10px; font-weight:700; transition:0.3s; }
         #app a:hover { background:#ff8a75; }
 
-        /* Contato e localização */
+        /* Localização e Contato */
         #localizacao p, #contato p { text-align:center; margin:10px 0; font-size:1.1rem; }
         iframe { border-radius:12px; margin-top:20px; width:100%; height:350px; border:0; }
 
-        /* Rodapé */
         footer { background:#ff6f61; color:white; text-align:center; padding:30px 20px; margin-top:50px; }
         footer a { color:white; text-decoration:underline; margin:0 8px; }
 
-        /* Animação fadeIn */
         @keyframes fadeIn { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
-
-        /* Responsivo */
-        @media(max-width:768px){
-            header h1 { font-size:2.2rem; }
-            header p { font-size:1rem; }
-            nav a { padding:10px 15px; }
-            .menu-item { flex-direction:column; }
-            .menu-item div { max-width:100%; }
-            .menu-item img { width:100%; height:auto; }
-        }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <h1>Restaurante Pimenta Rosa</h1>
         <p>Sabores que aquecem o coração à beira-mar</p>
     </header>
 
-    <!-- Navegação -->
     <nav>
         <a href="#sobre">Sobre</a>
         <a href="#cardapio">Cardápio</a>
-        <a href="#galeria">Galeria</a>
         <a href="#app">Pedidos</a>
         <a href="#localizacao">Localização</a>
         <a href="#contato">Contato</a>
     </nav>
 
-    <!-- Sobre -->
     <section id="sobre">
         <h2>Sobre Nós</h2>
-        <p>Bem-vindo ao Pimenta Rosa – um lugar especial para quem ama boa comida e clima descontraído. Nosso ambiente acolhedor e cardápio cuidadosamente preparado combinam tradição e criatividade, para tornar cada refeição uma experiência memorável em Juquehy.</p>
+        <p>Bem-vindo ao Pimenta Rosa – um lugar especial para quem ama boa comida e clima descontraído. Nosso ambiente acolhedor e cardápio cuidadosamente preparado combinam tradição e criatividade.</p>
     </section>
 
-    <!-- Cardápio -->
     <section id="cardapio">
         <h2>Cardápio</h2>
 
         <div class="menu-category">
             <h3>Almoço</h3>
             <div class="menu-item">
-                <img src="imagens/moqueca.jpg" alt="Moqueca da Casa">
-                <div>
-                    <h4>Moqueca da Casa</h4>
-                    <p>Filé de pescada-cambucu, camarão, pirão, farofa de dendê e arroz branco.</p>
-                    <span>R$ 120,00</span>
-                </div>
+                <h4>Moqueca da Casa</h4>
+                <p>Filé de pescada-cambucu, camarão, pirão, farofa de dendê e arroz branco.</p>
+                <span>R$ 120,00</span>
             </div>
             <div class="menu-item">
-                <img src="imagens/badejo.jpg" alt="Badejo Tropical">
-                <div>
-                    <h4>Badejo Tropical</h4>
-                    <p>Badejo grelhado com purê de mandioquinha e molho de laranja.</p>
-                    <span>R$ 55,00</span>
-                </div>
+                <h4>Badejo Tropical</h4>
+                <p>Badejo grelhado com purê de mandioquinha e molho de laranja.</p>
+                <span>R$ 55,00</span>
             </div>
             <div class="menu-item">
-                <img src="imagens/pescada.jpg" alt="Pescada ao Mar">
-                <div>
-                    <h4>Pescada ao Mar</h4>
-                    <p>Filé de pescada grelhado ao molho de tomate fresco com manjericão, brócolis e arroz.</p>
-                    <span>R$ 50,00</span>
-                </div>
+                <h4>Pescada ao Mar</h4>
+                <p>Filé de pescada grelhado ao molho de tomate fresco com manjericão, brócolis e arroz.</p>
+                <span>R$ 50,00</span>
             </div>
             <div class="menu-item">
-                <img src="imagens/risoto_shimeji.jpg" alt="Risoto de Shimeji">
-                <div>
-                    <h4>Risoto de Shimeji</h4>
-                    <span>R$ 50,00</span>
-                </div>
+                <h4>Risoto de Shimeji</h4>
+                <span>R$ 50,00</span>
             </div>
         </div>
 
         <div class="menu-category">
             <h3>Sobremesas</h3>
             <div class="menu-item">
-                <img src="imagens/pudim.jpg" alt="Pudim na Lata">
-                <div>
-                    <h4>Pudim na Lata</h4>
-                    <p>Pudim de leite condensado com caramelo.</p>
-                    <span>R$ 20,00</span>
-                </div>
+                <h4>Pudim na Lata</h4>
+                <p>Pudim de leite condensado com caramelo.</p>
+                <span>R$ 20,00</span>
             </div>
             <div class="menu-item">
-                <img src="imagens/gateau.jpg" alt="Grande Gateau">
-                <div>
-                    <h4>Grande Gateau</h4>
-                    <p>Petit Gateau de chocolate com picolé Magnum, bombom e calda de chocolate.</p>
-                    <span>R$ 30,00</span>
-                </div>
+                <h4>Grande Gateau</h4>
+                <p>Petit Gateau de chocolate com picolé Magnum, bombom e calda de chocolate.</p>
+                <span>R$ 30,00</span>
             </div>
         </div>
 
         <div class="menu-category">
             <h3>Lanches</h3>
             <div class="menu-item">
-                <img src="imagens/x-burguer.jpg" alt="X-Burguer">
-                <div>
-                    <h4>X-Burguer</h4>
-                    <p>Pão, hambúrguer artesanal, queijo, tomate e maionese caseira.</p>
-                    <span>R$ 20,00</span>
-                </div>
+                <h4>X-Burguer</h4>
+                <p>Pão, hambúrguer artesanal, queijo, tomate e maionese caseira.</p>
+                <span>R$ 20,00</span>
             </div>
             <div class="menu-item">
-                <img src="imagens/omelete.jpg" alt="Omelete">
-                <div>
-                    <h4>Omelete</h4>
-                    <p>Omelete com queijo prato e peito de peru (acompanha saladinha).</p>
-                    <span>R$ 25,00</span>
-                </div>
+                <h4>Omelete</h4>
+                <p>Omelete com queijo prato e peito de peru (acompanha saladinha).</p>
+                <span>R$ 25,00</span>
             </div>
         </div>
 
         <div class="menu-category">
             <h3>Jantar</h3>
             <div class="menu-item">
-                <img src="imagens/arroz_pescador.jpg" alt="Arroz de Pescador">
-                <div>
-                    <h4>Arroz de Pescador</h4>
-                    <p>Arroz com frutos do mar (camarão, lula, mexilhão), ervilha fresca e açafrão.</p>
-                    <span>R$ 120,00</span>
-                </div>
+                <h4>Arroz de Pescador</h4>
+                <p>Arroz com frutos do mar (camarão, lula, mexilhão), ervilha fresca e açafrão.</p>
+                <span>R$ 120,00</span>
             </div>
             <div class="menu-item">
-                <img src="imagens/risoto_camarao.jpg" alt="Risoto de Camarão">
-                <div>
-                    <h4>Risoto de Camarão</h4>
-                    <span>R$ 65,00</span>
-                </div>
+                <h4>Risoto de Camarão</h4>
+                <span>R$ 65,00</span>
             </div>
             <div class="menu-item">
-                <img src="imagens/risoto_vegetariano.jpg" alt="Risoto Vegetariano">
-                <div>
-                    <h4>Risoto Vegetariano</h4>
-                    <p>Legumes em brunoise, tomate cereja e chips de alho poró.</p>
-                    <span>R$ 45,00</span>
-                </div>
+                <h4>Risoto Vegetariano</h4>
+                <p>Legumes em brunoise, tomate cereja e chips de alho poró.</p>
+                <span>R$ 45,00</span>
             </div>
         </div>
     </section>
 
-    <!-- Galeria -->
-    <section id="galeria">
-        <h2>Galeria de Fotos</h2>
-        <img src="imagens/ambiente1.jpg" alt="Ambiente 1">
-        <img src="imagens/ambiente2.jpg" alt="Ambiente 2">
-        <img src="imagens/prato1.jpg" alt="Prato 1">
-        <img src="imagens/prato2.jpg" alt="Prato 2">
-    </section>
-
-    <!-- App / Pedidos -->
     <section id="app">
         <h2>Faça seu pedido pelo App</h2>
         <p>Baixe nosso aplicativo e peça diretamente para o Restaurante Pimenta Rosa. Receba no conforto da sua casa ou reserve sua mesa.</p>
         <a href="#">Baixar o App</a>
     </section>
 
-    <!-- Localização -->
     <section id="localizacao">
         <h2>Localização</h2>
         <p>Av. Adelino Tavares, 332 – Juquehy, São Sebastião – SP, Brasil</p>
@@ -243,7 +163,6 @@
         <iframe src="https://www.google.com/maps?q=Av.+Adelino+Tavares,+332,+Juquehy,+SP,+Brasil&output=embed" allowfullscreen="" loading="lazy"></iframe>
     </section>
 
-    <!-- Contato -->
     <section id="contato">
         <h2>Contato</h2>
         <p>Para reservas ou informações:</p>
@@ -251,7 +170,6 @@
         <p>Email: contato@pimentarosa.com.br</p>
     </section>
 
-    <!-- Rodapé -->
     <footer>
         <p>&copy; 2026 Pimenta Rosa – Todos os direitos reservados.</p>
         <p><a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">WhatsApp</a></p>
